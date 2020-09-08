@@ -84,4 +84,4 @@ server.start = function () {
   });
 };
 
-module.exports = server;
+export default server;
