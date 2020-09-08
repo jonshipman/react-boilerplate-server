@@ -1,11 +1,17 @@
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+import "canvas";
+import "ignore-styles";
+import "isomorphic-fetch";
+import { JSDOM } from "jsdom";
+import Babel from "@babel/register";
+import Storage from "dom-storage";
+
+import server from "./index";
+
 global.dom = new JSDOM(null, { url: "http://localhost" });
 global.window = dom.window;
 global.document = global.window.document;
 global.navigator = global.window.navigator;
 
-const Storage = require("dom-storage");
 global.localStorage = new Storage(null, { strict: true });
 global.sessionStorage = new Storage(null, { strict: true });
 
@@ -19,11 +25,7 @@ global.matchMedia =
     };
   };
 
-require("ignore-styles");
-require("isomorphic-fetch");
-require("canvas");
-
-require("@babel/register")({
+Babel({
   ignore: [/(node_modules)/],
   presets: ["@babel/preset-env", "@babel/preset-react"],
   plugins: [
@@ -37,5 +39,4 @@ require("@babel/register")({
   ],
 });
 
-import server from "./index";
-module.exports = server;
+export default server;
