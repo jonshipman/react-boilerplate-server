@@ -2,7 +2,7 @@
   "name": "react-boilerplate-server",
   "version": "0.0.1",
   "description": "Express server setup for React / WordPress projects",
-  "main": "src/bootstrap.cjs",
+  "main": "src/bootstrap.js",
   "repository": "https://github.com/jonshipman/react-boilerplate-server",
   "author": "Jon Shipman",
   "license": "MIT",
