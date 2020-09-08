@@ -6,6 +6,7 @@
   "repository": "https://github.com/jonshipman/react-boilerplate-server",
   "author": "Jon Shipman",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@babel/core": "*",
     "@babel/plugin-proposal-class-properties": "*",
