@@ -1,0 +1,36 @@
+{
+  "name": "react-boilerplate-server",
+  "version": "0.0.1",
+  "description": "Express server setup for React / WordPress projects",
+  "main": "src/bootstrap.js",
+  "repository": "https://github.com/jonshipman/react-boilerplate-server",
+  "author": "Jon Shipman",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "@babel/plugin-transform-runtime": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "@babel/register": "*",
+    "babel-plugin-inline-import-data-uri": "*",
+    "babel-plugin-inline-react-svg": "*",
+    "canvas": "*",
+    "dom-storage": "*",
+    "ignore-styles": "*",
+    "isomorphic-fetch": "*",
+    "jsdom": "*",
+    "prettier": "*"
+  },
+  "dependencies": {
+    "@apollo/client": "*",
+    "@apollo/react-ssr": "*",
+    "express": "*",
+    "graphql": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "*",
+    "subscriptions-transport-ws": "^0.9.18"
+  }
+}
