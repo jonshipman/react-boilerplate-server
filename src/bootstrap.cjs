@@ -37,5 +37,5 @@ require("@babel/register")({
   ],
 });
 
-const server = require("./index");
+import server from "./index";
 module.exports = server;
