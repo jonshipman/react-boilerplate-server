@@ -16,7 +16,9 @@
     "start": "microbundle watch --no-compress --format modern,cjs --target node --css-modules false",
     "prepare": "run-s build",
     "start:server": "NODE_ENV=development node src/index.js",
-    "test": "NODE_ENV=development node dist/index.js"
+    "test": "run-s test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint ."
   },
   "peerDependencies": {
     "canvas": "^2.6.1"
