@@ -35,8 +35,6 @@
     "babel-plugin-inline-react-svg": "^1.1.1",
     "bufferutil": "^4.0.1",
     "cross-env": "^7.0.2",
-    "cssom": "^0.4.4",
-    "cssstyle": "^2.3.0",
     "dom-storage": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
