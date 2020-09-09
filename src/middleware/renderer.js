@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 import { renderToStringWithData } from "@apollo/react-ssr";
 
-import Redirect from "./redirection.mjs";
+import Redirect from "./redirection";
 
 let App = "div";
 let gqlUrl = "";
@@ -86,7 +86,7 @@ export const serverRenderer = async (req, res) => {
       return res
         .status(500)
         .send(
-          "<html><head><title>500 Error</title></head><body><h1>500 Status Error</h1><h2>Did you forget to yarn build?</h2><h3>&hellip; or assign paths to server?</h3></body></html>"
+          "<html><head><title>500 Error</title></head><body><h1>500 Status Error</h1><h2>Did you forget to yarn build?</h2><h3>&hellip; or assign paths to server?</h3></body></html>",
         )
         .end();
     }
@@ -113,19 +113,19 @@ export const serverRenderer = async (req, res) => {
           ${helmet.script.toString()}
           ${helmet.noscript.toString()}
           ${helmet.style.toString()}
-          `
+          `,
         );
 
         htmlData = htmlData.replace(
           /window\.__REACT_HYDRATE__=.*?<\/script/,
-          "window.__REACT_HYDRATE__=true</script"
+          "window.__REACT_HYDRATE__=true</script",
         );
 
         htmlData = htmlData.replace(
           '<div id="root"></div>',
           `<div id="root">${content}</div><script>window.__APOLLO_STATE__=${JSON.stringify(
-            initialState
-          ).replace(/</g, "\\u003c")};</script>`
+            initialState,
+          ).replace(/</g, "\\u003c")};</script>`,
         );
 
         if (/status-code-404/.test(htmlData)) {

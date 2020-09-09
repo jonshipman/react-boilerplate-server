@@ -2,10 +2,21 @@
   "name": "react-boilerplate-server",
   "version": "0.0.1",
   "description": "Express server setup for React / WordPress projects",
-  "main": "src/bootstrap.cjs",
-  "repository": "https://github.com/jonshipman/react-boilerplate-server",
-  "author": "Jon Shipman",
+  "author": "jonshipman",
   "license": "MIT",
+  "repository": "jonshipman/react-boilerplate-server",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepare": "run-s build",
+    "start:server": "NODE_ENV=development node src/index.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -13,15 +24,30 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.11.5",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-inline-import-data-uri": "^1.0.1",
     "babel-plugin-inline-react-svg": "^1.1.1",
     "canvas": "^2.6.1",
+    "cross-env": "^7.0.2",
     "dom-storage": "^2.1.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint": "^6.8.0",
+    "gh-pages": "^2.2.0",
     "ignore-styles": "^5.0.1",
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^16.4.0",
+    "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "react-scripts": "^3.4.1"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
@@ -34,7 +60,7 @@
     "react-router-dom": "^5.2.0",
     "subscriptions-transport-ws": "^0.9.18"
   },
-  "scripts": {
-    "start": "NODE_ENV=development node src/bootstrap.cjs"
-  }
+  "files": [
+    "dist"
+  ]
 }
