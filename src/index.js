@@ -1,4 +1,5 @@
 // These aren't being rolled up in the proper order, required by JSDOM
+var CSSStyleDeclaration = {};
 import "cssstyle";
 import "cssom";
 
