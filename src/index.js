@@ -1,13 +1,12 @@
 // Provide jsdom replacements for browser properties
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+import { JSDOM } from "jsdom";
 global.dom = new JSDOM(null, { url: "http://localhost" });
 global.window = dom.window;
 global.document = global.window.document;
 global.navigator = global.window.navigator;
 
 // Create mock storage (won't be used on the server, keeps the code from dying)
-const Storage = require("dom-storage");
+import Storage from "dom-storage";
 global.localStorage = new Storage(null, { strict: true });
 global.sessionStorage = new Storage(null, { strict: true });
 
@@ -22,12 +21,14 @@ global.matchMedia =
   };
 
 // Ignore styles, provide a replacemen for fetch, and build upon canvas
-require("ignore-styles");
-require("isomorphic-fetch");
-require("canvas");
+import "ignore-styles";
+import "isomorphic-fetch";
+import "canvas";
 
 // Babel code
-require("@babel/register")({
+import babel from "@babel/register";
+
+babel({
   ignore: [/(node_modules)/],
   presets: ["@babel/preset-env", "@babel/preset-react"],
   plugins: [
@@ -41,6 +42,6 @@ require("@babel/register")({
   ],
 });
 
-const { server } = require("./server");
+import { server } from "./server";
 
-module.exports = { server };
+export { server };

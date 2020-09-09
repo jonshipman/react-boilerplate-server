@@ -1,14 +1,15 @@
 import React from "react";
-import { StaticRouter } from "react-router-dom";
-import { Helmet } from "react-helmet";
-
 import {
   ApolloProvider,
   ApolloClient,
   InMemoryCache,
   HttpLink,
 } from "@apollo/client";
+import { Helmet } from "react-helmet";
 import { renderToStringWithData } from "@apollo/react-ssr";
+import { StaticRouter } from "react-router-dom";
+import fs from "fs";
+import path from "path";
 
 import Redirect from "./redirection";
 
@@ -22,8 +23,6 @@ global.ReactComponent = <React.Component />;
 Helmet.canUseDOM = false;
 React.useLayoutEffect = React.useEffect;
 
-const path = require("path");
-const fs = require("fs");
 const context = {};
 
 const errorPage = (error) => {
