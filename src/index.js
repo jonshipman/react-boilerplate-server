@@ -4,6 +4,7 @@ global.dom = new JSDOM(null, { url: "http://localhost" });
 global.window = dom.window;
 global.document = global.window.document;
 global.navigator = global.window.navigator;
+global.CSSStyleDeclaration = {};
 
 // Create mock storage (won't be used on the server, keeps the code from dying)
 import Storage from "dom-storage";
