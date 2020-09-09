@@ -12,15 +12,17 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle --no-compress --format modern,cjs --target node --css-modules false",
-    "start": "microbundle watch --no-compress --format modern,cjs --target node --css-modules false",
+    "build": "microbundle --no-compress --format modern,cjs --target node --css-modules --exclude jsdom false",
+    "start": "microbundle watch --no-compress --format modern,cjs --target node --css-modules --exclude jsdom false",
     "prepare": "run-s build",
     "test:server": "NODE_ENV=development node -r esm src/index.test.js",
     "test": "run-s test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint ."
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "canvas": "^2.6.1"
+  },
   "devDependencies": {
     "@apollo/client": "^3.1.4",
     "@apollo/react-ssr": "^4.0.0",
