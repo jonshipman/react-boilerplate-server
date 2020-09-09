@@ -16,6 +16,7 @@ let App = "div";
 let gqlUrl = "";
 let FRONTEND_URL = "";
 let useRedirectionSsr = false;
+let paths = { 500: "", 200: "" };
 
 global.ReactComponent = <React.Component />;
 Helmet.canUseDOM = false;
@@ -27,13 +28,10 @@ const context = {};
 
 const errorPage = (error) => {
   return new Promise((res, rej) => {
-    const filePath = path.resolve(
-      __dirname,
-      "..",
-      "..",
-      "build",
-      `error-${error}.html`
-    );
+    let filePath = paths["500"];
+    if (Array.isArray(filePath)) {
+      filePath = path.resolve.apply(null, filePath);
+    }
 
     fs.readFile(filePath, "utf8", (err, htmlData) => {
       if (err) {
@@ -50,6 +48,7 @@ export const setParams = (params = {}) => {
   gqlUrl = params.gqlUrl || "";
   FRONTEND_URL = params.FRONTEND_URL || "";
   useRedirectionSsr = params.useRedirectionSsr;
+  paths = params.paths;
 };
 
 export const serverRenderer = async (req, res) => {
@@ -75,7 +74,10 @@ export const serverRenderer = async (req, res) => {
     }
   }
 
-  const filePath = path.resolve(__dirname, "..", "..", "build", "index.html");
+  let filePath = paths["200"];
+  if (Array.isArray(filePath)) {
+    filePath = path.resolve.apply(null, filePath);
+  }
 
   fs.readFile(filePath, "utf8", (err, htmlData) => {
     if (err) {
@@ -84,7 +86,7 @@ export const serverRenderer = async (req, res) => {
       return res
         .status(500)
         .send(
-          "<html><head><title>500 Error</title></head><body><h1>500 Status Error</h1><h2>Did you forget to yarn build?</h2></body></html>"
+          "<html><head><title>500 Error</title></head><body><h1>500 Status Error</h1><h2>Did you forget to yarn build?</h2><h3>&hellip; or assign paths to server?</h3></body></html>"
         )
         .end();
     }

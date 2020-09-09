@@ -19,6 +19,10 @@ server.sitemap = {
 };
 server.staticMaxAge = "30d";
 server.gqlUrl = server.BACKEND_URL + "/graphql";
+server.paths = {
+  200: "./build/index.html",
+  500: "./build/error-500.html",
+};
 
 server.start = function () {
   const {
@@ -28,6 +32,7 @@ server.start = function () {
     sitemap: sitemapParams = {},
     AppComponent,
     useRedirectionSsr,
+    paths,
   } = this;
   const gqlUrl = this.gqlUrl || BACKEND_URL + "/graphql";
 
@@ -37,7 +42,13 @@ server.start = function () {
   setSitemapParams({ posts, tax, gqlUrl, FRONTEND_URL });
 
   // Set renderer params
-  rendererParams({ useRedirectionSsr, FRONTEND_URL, AppComponent, gqlUrl });
+  rendererParams({
+    useRedirectionSsr,
+    FRONTEND_URL,
+    AppComponent,
+    gqlUrl,
+    paths,
+  });
 
   // initialize the application and create the routes
   const app = express();
@@ -84,4 +95,4 @@ server.start = function () {
   });
 };
 
-export default server;
+export { server };
