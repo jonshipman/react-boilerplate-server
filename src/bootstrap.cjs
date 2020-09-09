@@ -41,6 +41,6 @@ require("@babel/register")({
   ],
 });
 
-const { server } = require("./index");
+const { server } = require("./index.mjs");
 
 module.exports = { server };

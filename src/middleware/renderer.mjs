@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 import { renderToStringWithData } from "@apollo/react-ssr";
 
-import Redirect from "./redirection";
+import Redirect from "./redirection.mjs";
 
 let App = "div";
 let gqlUrl = "";

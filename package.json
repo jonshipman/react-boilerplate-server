@@ -35,6 +35,6 @@
     "subscriptions-transport-ws": "^0.9.18"
   },
   "scripts": {
-    "start": "NODE_ENV=development node src/bootstrap.js"
+    "start": "NODE_ENV=development node src/bootstrap.cjs"
   }
 }
