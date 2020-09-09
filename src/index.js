@@ -1,6 +1,3 @@
-// CSSStyleDeclaration undefined error
-global.CSSStyleDeclaration = { CSSStyleDeclaration: {} };
-
 // Provide jsdom replacements for browser properties
 import { JSDOM } from "jsdom";
 global.dom = new JSDOM(null, { url: "http://localhost" });
