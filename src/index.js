@@ -1,7 +1,7 @@
 // Provide jsdom replacements for browser properties
 import { JSDOM } from "jsdom";
 global.dom = new JSDOM(null, { url: "http://localhost" });
-global.window = dom.window;
+global.window = global.dom.window;
 global.document = global.window.document;
 global.navigator = global.window.navigator;
 
@@ -24,23 +24,6 @@ global.matchMedia =
 import "ignore-styles";
 import "isomorphic-fetch";
 import "canvas";
-
-// Babel code
-import babel from "@babel/register";
-
-babel({
-  ignore: [/(node_modules)/],
-  presets: ["@babel/preset-env", "@babel/preset-react"],
-  plugins: [
-    [
-      "babel-plugin-inline-import-data-uri",
-      { extensions: [".webp", ".jpg", ".gif", ".png"] },
-    ],
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties",
-    "babel-plugin-inline-react-svg",
-  ],
-});
 
 import { server } from "./server";
 

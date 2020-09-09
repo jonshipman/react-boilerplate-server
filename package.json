@@ -15,14 +15,12 @@
     "build": "microbundle --no-compress --format modern,cjs --target node --css-modules false",
     "start": "microbundle watch --no-compress --format modern,cjs --target node --css-modules false",
     "prepare": "run-s build",
-    "start:server": "NODE_ENV=development node src/index.js",
+    "test:server": "NODE_ENV=development node -r esm src/index.test.js",
     "test": "run-s test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint ."
   },
-  "peerDependencies": {
-    "canvas": "^2.6.1"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@apollo/client": "^3.1.4",
     "@apollo/react-ssr": "^4.0.0",
@@ -48,6 +46,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "ignore-styles": "^5.0.1",
