@@ -45,23 +45,23 @@
     "eslint-plugin-standard": "^4.0.1",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "graphql": "^15.3.0",
     "isomorphic-fetch": "^2.2.1",
     "microbundle": "^0.12.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
-    "subscriptions-transport-ws": "^0.9.18",
     "utf-8-validate": "^5.0.2"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
     "@apollo/react-ssr": "^4.0.0",
     "canvas": "^2.6.1",
+    "graphql": "^15.3.0",
     "jsdom": "^16.4.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "subscriptions-transport-ws": "^0.9.18"
   },
   "files": [
     "dist"
