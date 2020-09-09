@@ -1,6 +1,6 @@
 // These aren't being rolled up in the proper order, required by JSDOM
-import "cssom";
 import "cssstyle";
+import "cssom";
 
 // Provide jsdom replacements for browser properties
 import { JSDOM } from "jsdom";
