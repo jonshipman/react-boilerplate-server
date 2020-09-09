@@ -21,7 +21,6 @@ global.matchMedia =
   };
 
 // Ignore styles, provide a replacemen for fetch, and build upon canvas
-import "ignore-styles";
 import "isomorphic-fetch";
 import "canvas";
 

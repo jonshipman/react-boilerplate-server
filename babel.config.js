@@ -8,4 +8,5 @@ module.exports = {
     "babel-plugin-inline-react-svg",
     "@babel/plugin-proposal-class-properties",
   ],
+  ignore: ["*.scss", "*.css"],
 };
