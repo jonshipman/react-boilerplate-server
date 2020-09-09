@@ -57,10 +57,10 @@
     "canvas": "^2.6.1",
     "graphql": "^15.3.0",
     "jsdom": "^16.4.0",
+    "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "react": "^16.13.1",
     "subscriptions-transport-ws": "^0.9.18"
   },
   "files": [

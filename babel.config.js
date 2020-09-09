@@ -1,5 +1,8 @@
 module.exports = {
-  presets: ["@babel/preset-env", "@babel/preset-react"],
+  presets: [
+    "@babel/preset-env",
+    ["@babel/preset-react", { development: true }],
+  ],
   plugins: [
     [
       "babel-plugin-inline-import-data-uri",
