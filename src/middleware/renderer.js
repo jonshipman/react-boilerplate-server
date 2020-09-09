@@ -19,7 +19,7 @@ let FRONTEND_URL = "";
 let useRedirectionSsr = false;
 let paths = { 500: "", 200: "" };
 
-global.ReactComponent = <React.Component />;
+global.ReactComponent = React.Component;
 Helmet.canUseDOM = false;
 React.useLayoutEffect = React.useEffect;
 
