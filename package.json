@@ -12,8 +12,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle --no-compress --format modern,cjs --target node",
-    "start": "microbundle watch --no-compress --format modern,cjs --target node",
+    "build": "microbundle --no-compress --format modern,cjs --target node --jsx React.createElement",
+    "start": "microbundle watch --no-compress --format modern,cjs --target node --jsx React.createElement",
     "prepare": "run-s build",
     "test:server": "NODE_ENV=development node -r esm src/index.test.js",
     "test": "run-s test:lint test:build",
