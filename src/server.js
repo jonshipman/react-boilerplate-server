@@ -18,7 +18,6 @@ server.sitemap = {
   tax: [{ type: "categories", post: "posts" }],
 };
 server.staticMaxAge = "30d";
-server.gqlUrl = server.BACKEND_URL + "/graphql";
 server.paths = {
   200: "./build/index.html",
   500: "./build/error-500.html",
